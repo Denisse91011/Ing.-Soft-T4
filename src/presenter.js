@@ -1,5 +1,11 @@
+import { saludar } from "./greeter.js";
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const botonSaludar = document.getElementById("saludar-btn");
+  const inputNombre = document.getElementById("preguntar-nombre");
+  const saludoDiv = document.getElementById("saludo");
 
+  botonSaludar.addEventListener("click", () => {
+    saludoDiv.textContent = saludar(inputNombre.value);
+  });
 });

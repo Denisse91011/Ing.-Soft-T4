@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html xml:lang="es">
+<html lang="es">
   <head>
     <title>Bot De Saludo</title>
+    <script type="module" src="./src/presenter.js"></script>
   </head>
   <body>
     <h1>Bot De Saludo</h1>
-    <div> Bienvenidos a la "Universidad Catolica Boliviana"</div>
-    <script type="module" src="./src/presenter.js"></script>
+    <div id="saludo">Bienvenidos a la "Universidad Católica Boliviana"</div>
+    <label for="preguntar-nombre">¿Cuál es tu nombre?: </label>
+    <input type="text" id="preguntar-nombre" />
+    <button id="saludar-btn">Saludar</button>
   </body>
 </html>
