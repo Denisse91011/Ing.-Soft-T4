@@ -5,6 +5,20 @@ document.addEventListener("DOMContentLoaded", function() {
   const mensaje = document.getElementById("mensaje");
   const inputNombre = document.getElementById("nombre");
 
+  // Función para obtener el saludo según la hora del día
+  function obtenerSaludoSegunHora() {
+      let fechaActual = new Date(); // Obtenemos la fecha y hora actual
+      let horaActual = fechaActual.getHours(); // Extraemos solo la hora
+
+      if (horaActual >= 5 && horaActual < 12) {
+          return "Buenos días";
+      } else if (horaActual >= 12 && horaActual < 18) {
+          return "Buenas tardes";
+      } else {
+          return "Buenas noches";
+      }
+  }
+
   // Agregamos el evento al botón
   btnSaludar.addEventListener("click", function() {
       // Obtenemos el nombre ingresado por el usuario
@@ -14,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
       if (nombreUsuario === "") {
           mensaje.textContent = "Por favor, ingresa tu nombre.";
       } else {
-          mensaje.textContent = `Hola, ${nombreUsuario}! bienvenido a la Universidad Catolica Boliviana de San Pablo`;
+          let saludo = obtenerSaludoSegunHora(); // Obtenemos el saludo adecuado
+          mensaje.textContent = `${saludo}, ${nombreUsuario}!`;
       }
   });
 });
