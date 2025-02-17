@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (nombreUsuario === "") {
           mensaje.textContent = "Por favor, ingresa tu nombre.";
       } else {
-          mensaje.textContent = `Hola, ${nombreUsuario}!`;
+          mensaje.textContent = `Hola, ${nombreUsuario}! bienvenido a la Universidad Catolica Boliviana de San Pablo`;
       }
   });
 });
