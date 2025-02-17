@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>Bot De Saludo</title>
-    <script type="module" src="./src/presenter.js"></script>
-  </head>
-  <body>
-    <h1>Bot De Saludo</h1>
-    <div id="saludo">Bienvenidos a la "Universidad Católica Boliviana"</div>
-    <label for="preguntar-nombre">¿Cuál es tu nombre?: </label>
-    <input type="text" id="preguntar-nombre" />
-    <button id="saludar-btn">Saludar</button>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Saludador</title>
+</head>
+<body>
+    <h1>Bot Saludador</h1>
+
+    <!-- Campo para ingresar el nombre -->
+    <label for="nombre">Ingresa tu nombre:</label>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+    
+    <button id="btnSaludar">Saludar</button>
+    <p id="mensaje"></p>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
