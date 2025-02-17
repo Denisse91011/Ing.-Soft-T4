@@ -5,11 +5,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const mensaje = document.getElementById("mensaje");
   const inputNombre = document.getElementById("nombre");
   const selectGenero = document.getElementById("genero");
+  const inputEdad = document.getElementById("edad");
 
   // Función para obtener el saludo según la hora del día
   function obtenerSaludoSegunHora() {
-      let fechaActual = new Date(); // Obtenemos la fecha y hora actual
-      let horaActual = fechaActual.getHours(); // Extraemos solo la hora
+      let fechaActual = new Date();
+      let horaActual = fechaActual.getHours();
 
       if (horaActual >= 5 && horaActual < 12) {
           return "Buenos días";
@@ -23,10 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
   // Agregamos el evento al botón
   btnSaludar.addEventListener("click", function() {
       // Obtenemos los valores ingresados por el usuario
-      const nombreUsuario = inputNombre.value.trim(); // Eliminamos espacios extra
+      const nombreUsuario = inputNombre.value.trim();
       const genero = selectGenero.value;
+      const edad = parseInt(inputEdad.value, 10);
 
-      // Verificamos si el usuario ingresó un nombre
+      // Verificamos si el usuario ingresó los datos
       if (nombreUsuario === "") {
           mensaje.textContent = "Por favor, ingresa tu nombre.";
           return;
@@ -37,17 +39,25 @@ document.addEventListener("DOMContentLoaded", function() {
           return;
       }
 
-      let saludo = obtenerSaludoSegunHora(); // Obtenemos el saludo adecuado
-
-      // Personalizar el saludo según el género
-      let saludoPersonalizado;
-      if (genero === "M") {
-          saludoPersonalizado = `${saludo}, Sr. ${nombreUsuario}!`;
-      } else if (genero === "F") {
-          saludoPersonalizado = `${saludo}, Sra. ${nombreUsuario}!`;
-      } else {
-          saludoPersonalizado = `${saludo}, ${nombreUsuario}!`;
+      if (isNaN(edad) || edad < 1) {
+          mensaje.textContent = "Por favor, ingresa una edad válida.";
+          return;
       }
+
+      let saludo = obtenerSaludoSegunHora();
+
+      // Determinar el tratamiento según edad y género
+      let tratamiento = "";
+      if (edad >= 18 && edad <= 30) {
+          tratamiento = genero === "M" ? "Joven" : genero === "F" ? "Señorita" : "";
+      } else if (edad > 30) {
+          tratamiento = genero === "M" ? "Señor" : genero === "F" ? "Señora" : "";
+      }
+
+      // Construir el mensaje final
+      let saludoPersonalizado = tratamiento
+          ? `${saludo}, ${tratamiento} ${nombreUsuario}! bienvenido a la Universidad Catolica Boliviana de San Pablo`
+          : `${saludo}, ${nombreUsuario}! bienvenido a la Universidad Catolica Boliviana de San Pablo`;
 
       mensaje.textContent = saludoPersonalizado;
   });
