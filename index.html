@@ -8,11 +8,9 @@
 <body>
     <h1>Bot Saludador</h1>
 
-    
     <label for="nombre">Ingresa tu nombre:</label>
     <input type="text" id="nombre" placeholder="Escribe tu nombre">
 
-   
     <label for="genero">Selecciona tu género:</label>
     <select id="genero">
         <option value="">-- Selecciona --</option>
@@ -21,11 +19,9 @@
         <option value="N">No especificar</option>
     </select>
 
-   
     <label for="edad">Ingresa tu edad:</label>
     <input type="number" id="edad" placeholder="Escribe tu edad" min="1">
 
-   
     <label for="idioma">Selecciona el idioma:</label>
     <select id="idioma">
         <option value="es">Español</option>
@@ -35,6 +31,7 @@
     <button id="btnSaludar">Saludar</button>
     <p id="mensaje"></p>
 
-    <script src="./src/script.js"></script>
+    <script src="./src/greeter.js" type="module"></script>
+    <script src="./src/presenter.js" type="module"></script>
 </body>
 </html>
