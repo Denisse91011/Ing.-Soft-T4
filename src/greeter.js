@@ -23,19 +23,31 @@ class Greeter {
 
         let greeting = `${timeOfDayGreeting} ${name}`;
         if (language === 'es') {
-            if (gender === 'M') {
-                greeting += ' señor';
-            } else if (gender === 'F') {
-                greeting += ' señora';
+            if (age > 30) {
+                greeting += gender === 'M' ? ' Sr.' : ' Sra.';
+            } else {
+                if (gender === 'M') {
+                    greeting += ' señor';
+                } else if (gender === 'F') {
+                    greeting += ' señora';
+                }
             }
-            greeting += `, tienes ${age} años.`;
+            if (age) {
+                greeting += `, tienes ${age} años.`;
+            }
         } else if (language === 'en') {
-            if (gender === 'M') {
-                greeting += ' Mr.';
-            } else if (gender === 'F') {
-                greeting += ' Ms.';
+            if (age > 30) {
+                greeting += gender === 'M' ? ' Mr.' : ' Ms.';
+            } else {
+                if (gender === 'M') {
+                    greeting += ' Mr.';
+                } else if (gender === 'F') {
+                    greeting += ' Ms.';
+                }
             }
-            greeting += `, you are ${age} years old.`;
+            if (age) {
+                greeting += `, you are ${age} years old.`;
+            }
         }
 
         return greeting;
